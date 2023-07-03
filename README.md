@@ -1,4 +1,4 @@
-# Shan's Book My Show
+# Book My Show 2.0
 
 This is a Full Stack Project Built with MERN Stack.
 
