@@ -1,6 +1,12 @@
 import React from "react";
-import { BiChevronDown, BiMenu, BiSearch } from "react-icons/bi";
+import { BiChevronDown, BiMenu } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import Search from "./Search";
+import  { useState } from "react";
+import axios from "axios";
+
+
+
 
 function NavSm() {
   return (
@@ -13,7 +19,7 @@ function NavSm() {
           </span>
         </div>
         <div className="w-8 h-8">
-          <BiSearch className="w-full h-full" />
+          <Search className="w-full h-full" />
         </div>
       </div>
     </>
@@ -32,11 +38,11 @@ function NavMd() {
           />
         </div>
         <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
-          <BiSearch />
+          <Search />
           <input
             type="search"
             className="w-full bg-transparent border-none focus:outline-none"
-            placeholder="Search for movies, events, plays, sports and activities"
+            placeholder="......."
           />
         </div>
       </div>
@@ -44,7 +50,33 @@ function NavMd() {
   );
 }
 
-function NavLg() {
+    
+const NavLg = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  
+
+  const handleSearch = async () => {
+    if (searchTerm) {
+
+      try {
+        const response = await axios.get(`/search/movie?query=${searchTerm}`);
+        console.log(response)
+       
+        setSearchTerm("");
+        
+      } catch (error) {
+        
+        console.log("Error occurred:", error);
+      }
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <>
       <div className="container flex mx-auto px-4 items-center justify-between">
@@ -57,12 +89,16 @@ function NavLg() {
             />
           </div>
           <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
-            <BiSearch />
+           
             <input
-              type="search"
-              className="w-full bg-transparent border-none focus:outline-none"
-              placeholder="Search for movies, events, plays, sports and activities"
-            />
+        type="text"
+        className="w-full bg-transparent border-none focus:outline-none"
+        placeholder="Search for movies, events, plays, sports and activities"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyPress={handleKeyPress}
+      />
+            
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -75,9 +111,9 @@ function NavLg() {
           >
             Plays
           </Link>
-          <button className="bg-red-600 text-white px-2 py-1 text-sm rounded">
-            Sign In
-          </button>
+         
+          <Link to="/Signup" >Sign Up</Link>
+         
           <div className="w-8 h-8 text-white">
             <BiMenu className="w-full h-full" />
           </div>
@@ -108,3 +144,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

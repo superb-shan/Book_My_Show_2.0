@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { BiChevronDown, BiMenu, BiSearch, BiShareAlt } from "react-icons/bi";
 import { MovieContext } from "../../context/Movie.context";
+import SignUp from "./Signup";
 
 const NavSm = () => {
   const { movie } = useContext(MovieContext);
@@ -44,7 +45,7 @@ const NavLg = () => {
             Delhi NCR <BiChevronDown />
           </span>
           <button className="bg-red-600 text-white px-2 py-1 text-sm rounded">
-            Sign In
+            Sign In <SignUp />
           </button>
           <div className="w-8 h-8 text-white">
             <BiMenu className="w-full h-full" />

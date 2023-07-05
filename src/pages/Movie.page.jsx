@@ -50,7 +50,7 @@ const MoviePage = () => {
   useEffect(() => {
     const requestLatestMovies = async () => {
       const getLatestMovies = await axios.get(
-        `/trending/tv/day?language=ja-JP`
+        `/trending/tv/day?language=hi-IN`
       );
       setLatestMovies(getLatestMovies.data.results);
     };
