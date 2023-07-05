@@ -111,8 +111,10 @@ const NavLg = () => {
           >
             Plays
           </Link>
-         
+
+           <button className="bg-red-600 text-white px-2 py-1 text-sm rounded">
           <Link to="/Signup" >Sign Up</Link>
+          </button>
          
           <div className="w-8 h-8 text-white">
             <BiMenu className="w-full h-full" />
