@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import MovieProvider from "./context/Movie.context";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -11,6 +12,7 @@ root.render(
     <BrowserRouter>
       <MovieProvider>
         <App />
+        <ToastContainer /> 
       </MovieProvider>
     </BrowserRouter>
   </React.StrictMode>
