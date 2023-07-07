@@ -192,6 +192,7 @@ const MoviePage = () => {
           <Slider {...settingCast}>
             {cast.map((castData) => (
               <Cast
+                key={castData.original_name + Math.random()}
                 image={castData.profile_path}
                 castName={castData.original_name}
                 role={castData.character}
@@ -232,7 +233,7 @@ const MoviePage = () => {
         <div className="my-8">
           <PosterSlider
             config={settings}
-            title="SIMILAR MOVIES"
+            title="Similar Movies"
             posters={similarMovies}
             isDark={false}
           />

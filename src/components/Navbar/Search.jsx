@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
+import axios from "axios";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -8,7 +9,7 @@ const Search = () => {
 
   const handleSearch = () => {
     if (searchTerm.trim()) {
-      navigate(`/search?query=${searchTerm}`);
+      navigate(`/search/movie?query=${searchTerm}`);
       setSearchTerm("");
     }
   };
@@ -19,14 +20,27 @@ const Search = () => {
     }
   };
 
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+    console.log(e.target.value);
+
+    const getSuggestionList = async () => {
+      const suggestionList = await axios.get(`/search/movie?query=${searchTerm}`);
+      console.log(suggestionList.data.results);
+    }
+
+    getSuggestionList();
+
+  }
+
   return (
     <div className="flex items-center">
       <input
         type="text"
-        className="w-full bg-transparent border-none focus:outline-none"
+        className="w-[650px] bg-transparent border-none focus:outline-none"
         placeholder="Search for movies, events, plays, sports and activities"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleChange}
         onKeyPress={handleKeyPress}
       />
       <BiSearch

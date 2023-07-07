@@ -1,59 +1,15 @@
 import React from "react";
 import { BiChevronDown, BiMenu } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import Search from "./Search";
 import  { useState } from "react";
 import axios from "axios";
 
 
+// Main Component
+const Navbar = () => {
 
-
-function NavSm() {
-  return (
-    <>
-      <div className="text-white flex items-center justify-between">
-        <div>
-          <h3 className="text-xl font-bold">It All Starts Here!</h3>
-          <span className="text-gray-400 text-xs flex items-center cursor-pointer hover:text-white">
-            Delhi NCR <BiChevronDown />
-          </span>
-        </div>
-        <div className="w-8 h-8">
-          <Search className="w-full h-full" />
-        </div>
-      </div>
-    </>
-  );
-}
-
-function NavMd() {
-  return (
-    <>
-      <div className="flex items-center w-full gap-3">
-        <div className="w-10 h-10">
-          <img
-            src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
-            alt="logo"
-            className="w-full h-full"
-          />
-        </div>
-        <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
-          <Search />
-          <input
-            type="search"
-            className="w-full bg-transparent border-none focus:outline-none"
-            placeholder="......."
-          />
-        </div>
-      </div>
-    </>
-  );
-}
-
-    
-const NavLg = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  
+  const [searchSuggestionList, setSearchSuggestionList] = useState([]);
 
   const handleSearch = async () => {
     if (searchTerm) {
@@ -77,29 +33,112 @@ const NavLg = () => {
     }
   };
 
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+    console.log(e.target.value);
+
+    const getSuggestionList = async () => {
+      const suggestionList = await axios.get(`/search/movie?query=${searchTerm}`);
+      // console.log(suggestionList.data.results);
+      setSearchSuggestionList(suggestionList.data.results);
+    }
+
+    if (e.target.value !== "")
+      getSuggestionList();
+
+  }
+
+function NavSm() {
   return (
     <>
+      <div className="text-white flex items-center justify-between">
+        <div>
+          <h3 className="text-xl font-bold">It All Starts Here!</h3>
+          <span className="text-gray-400 text-xs flex items-center cursor-pointer hover:text-white">
+            Delhi NCR <BiChevronDown />
+          </span>
+        </div>
+        <div className="w-[200px] h-8">
+        <Link to="/">
+          <input
+            key="search-field"
+            autoFocus="autoFocus"
+            type="text"
+            className="w-full bg-transparent border-none focus:outline-none text-right pr-5"
+            placeholder="Search ......."
+            value={searchTerm}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+            /> 
+        </Link>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function NavMd() {
+  return (
+    <>
+      <div className="flex items-center w-full gap-3">
+        <div className="w-10 h-10">
+        <Link to="/">
+          <img
+            src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
+            alt="logo"
+            className="w-full h-full"
+          />
+        </Link>
+        </div>
+
+        <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
+          <input
+            key="search-field"
+            autoFocus="autoFocus"
+            type="search"
+            className="w-full bg-transparent border-none focus:outline-none"
+            placeholder="......."
+            value={searchTerm}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+          /> 
+        </div>
+      </div>
+    </>
+  );
+}
+
+    
+const NavLg = () => {
+  return (
+    <>
+    <div className="w-full">
       <div className="container flex mx-auto px-4 items-center justify-between">
         <div className="flex items-center w-1/2 gap-3">
           <div className="w-10 h-10">
+            <Link to="/">
             <img
               src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
               alt="logo"
               className="w-full h-full"
             />
+            </Link>
           </div>
-          <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
+           <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
            
-            <input
-        type="text"
-        className="w-full bg-transparent border-none focus:outline-none"
-        placeholder="Search for movies, events, plays, sports and activities"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyPress={handleKeyPress}
-      />
-            
-          </div>
+          <input
+            key="search-field"
+            autoFocus="autoFocus"
+            type="text"
+            className="w-full bg-transparent border-none focus:outline-none"
+            placeholder="Search for movies, events, plays, sports and activities"
+            value={searchTerm}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+          />
+
+          </div> 
+          
         </div>
         <div className="flex items-center gap-3">
           <span className="text-gray-200 text-base flex items-center cursor-pointer hover:text-white">
@@ -121,14 +160,15 @@ const NavLg = () => {
           </div>
         </div>
       </div>
+      </div>
     </>
   );
 }
 
-// Main Component
-const Navbar = () => {
+  // Main return:
+
   return (
-    <nav className="bg-darkBackground-700 px-4 py-3">
+    <nav className="bg-darkBackground-700 px-4 py-3 ">
       {/* Small Screen NavBar */}
       <div className="md:hidden">
         <NavSm />
@@ -141,6 +181,23 @@ const Navbar = () => {
       <div className="hidden md:hidden lg:flex">
         <NavLg />
       </div>
+      {(searchSuggestionList.length && searchTerm.length > 1) ? 
+        <div className="lg:w-[1200px] lg:ml-[125px] my-4 md:w-[930px] md:ml-[50px] sm:w-[530px] sm:ml-[50px] flex items-center gap-3 flex-wrap">
+          {searchSuggestionList.map((movieDetails, index) => (
+            <Link to={`/movie/${movieDetails.id}`}>
+                  <div
+                    key={index}
+                    className="border-2 border-transparent px-3 py-1 rounded bg-white text-red-600 hover:text-white hover:bg-red-600"
+                  >
+                    {movieDetails.title}
+                  </div>
+                </Link>
+              ))}
+        </div>
+      : 
+      <></>
+      }
+      
     </nav>
   );
 };

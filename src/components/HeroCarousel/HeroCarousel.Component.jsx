@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeroSlider from "react-slick";
 import { NextArrow, PrevArrow } from "./Arrows.Component";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
   const HeroCarousel = () => {
     const [images, setImages] = useState([]);
@@ -55,15 +56,19 @@ import axios from "axios";
       </div>
       <div className="hidden lg:block">
         <HeroSlider {...settingsLG}>
+        
           {images.map((images, index) => (
-            <div className="w-full h-96 px-2 py-3" key={index}>
+            <div className="w-full h-[50rem] px-2 py-3" key={index}>
+              <Link to={`/movie/${images.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/original${images.backdrop_path}`}
                 alt="Hero Banner"
                 className="w-full h-full rounded-md object-cover"
               />
+              </Link>
             </div>
           ))}
+          
         </HeroSlider>
       </div>
     </>

@@ -14,11 +14,12 @@ const MovieInfo = ({ movie }) => {
         <h1 className="text-white text-5xl font-bold">
           {movie.original_title}
         </h1>
+        {movie.original_language !== "en" ? <p className="text-white -mt-5 font-bold text-2xl ml-2">{movie.title}</p> : <></>}
         <div className="flex  flex-col gap-2 text-white">
-          <h4>4k rating</h4>
+          {movie.vote_average ? <h4>Rating: <strong>{movie.vote_average.toFixed(1)}</strong></h4> : <></>}
           <h4>English, Hindi, Kannada, Tamil, Telugu</h4>
           <h4>
-            {movie.runtime} min | {genres}
+            {`${Math.floor(movie.runtime / 60)}h ${(movie.runtime % 60) > 0 ? (movie.runtime % 60) + " mins" : ""}`  } | {genres}
           </h4>
         </div>
         <div className="flex items-center gap-3 w-full">

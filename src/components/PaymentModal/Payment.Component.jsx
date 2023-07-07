@@ -12,7 +12,7 @@ const PaymentModel = ({ setIsOpen, isOpen, price }) => {
       key: "rzp_test_ZhPndoeTQScVAa",
       amount: price * 100, // in paisa
       currency: "INR",
-      name: "Shan's My Show Clone",
+      name: "Book My Show 2.0",
       description: "Movie purchase or rental",
       image:
         "https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
