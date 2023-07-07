@@ -150,10 +150,13 @@ const NavLg = () => {
           >
             Plays
           </Link>
-
-           <button className="bg-red-600 text-white px-2 py-1 text-sm rounded">
+         <div className="bg-red-600 text-white px-2 py-1 text-sm rounded">
+         { showButton && <button  onClick={toggleButton}>
           <Link to="/Signup" >Sign Up</Link>
           </button>
+          }
+          </div>
+         
          
           <div className="w-8 h-8 text-white">
             <BiMenu className="w-full h-full" />

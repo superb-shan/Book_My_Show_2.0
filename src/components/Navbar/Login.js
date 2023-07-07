@@ -1,12 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
+
+import axios from "axios";
+import React, { useState} from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 const Login = () => {
+
+  const history=useNavigate();
+
+  const[email,setEmail]=useState('') 
+  const[password,setPassword]=useState('')
+
+  async function submit(e){
+    e.preventDefault()
+    try{
+      await axios.post("http://localhost:3001/Login",{email,password})
+      .then(res=>{
+        if(res.data!="exist"){
+          toast.error("user have not sign up")
+            
+        }
+        else if(res.data=="exist"){
+            toast.success("Successfully loged in")
+            history("/")
+        }
+    })
+    .catch(e=>{
+        alert("wrong details")
+        console.log(e);
+    })
+
+    }catch(e){
+        console.log(e)
+    }
+  }
+   
+
   return (
     <div className="bg-darkBackground-700 min-h-screen flex flex-col items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold mb-4">Log In</h2>
-        <form>
+        <form action="POST">
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
               Email
@@ -16,6 +51,7 @@ const Login = () => {
               id="email"
               type="email"
               placeholder="Enter your email"
+              onChange={(e)=>{setEmail(e.target.value)}}
             />
           </div>
           <div className="mb-4">
@@ -27,14 +63,16 @@ const Login = () => {
               id="password"
               type="password"
               placeholder="Enter your password"
+              onChange={(e)=>{setPassword(e.target.value)}}
             />
           </div>
-          <button
+          <input
             className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
-          > <Link to="/"> Log In</Link>
+            onClick={submit}/>
+        {/* <Link to="/"> Log In</Link>*/}
            
-          </button>
+        {/* </button>  */}
         </form>
         <p className="text-gray-700 mt-4">
           Don't have an account?{" "}
@@ -48,3 +86,9 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
+
