@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { BiChevronDown, BiMenu, BiSearch, BiShareAlt } from "react-icons/bi";
+import { BiChevronDown, BiSearch, BiShareAlt } from "react-icons/bi";
 import { MovieContext } from "../../context/Movie.context";
 import { Link } from "react-router-dom";
 import axios from "axios";

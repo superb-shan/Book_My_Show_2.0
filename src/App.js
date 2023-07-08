@@ -11,6 +11,7 @@ import MoviePage from "./pages/Movie.page";
 import TVShowPage from "./pages/TVShow.page";
 import Login from "./components/Navbar/Login";
 import Signup from "./components/Navbar/Signup";
+import NoPage from "./pages/NoPage.page";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.params = {};
@@ -24,6 +25,7 @@ function App() {
       <Route path="/Login" element={<Login />} />
       <Route path="/movie/:id" element={<MoviePage />} />
       <Route path="/tv" element={<TVShowPage />} />
+      <Route path="*" element={<NoPage/>} />
     </Routes>
   );
 }
