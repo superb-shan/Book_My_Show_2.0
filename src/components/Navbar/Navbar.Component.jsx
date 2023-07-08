@@ -3,6 +3,7 @@ import { BiChevronDown, BiMenu } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import  { useState } from "react";
 import axios from "axios";
+ import Hamburger from "./Hamburger";
 
 
 // Main Component
@@ -10,6 +11,7 @@ const Navbar = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchSuggestionList, setSearchSuggestionList] = useState([]);
+  
 
   const handleSearch = async () => {
     if (searchTerm) {
@@ -47,6 +49,8 @@ const Navbar = () => {
       getSuggestionList();
 
   }
+
+
 
 function NavSm() {
   return (
@@ -159,8 +163,10 @@ const NavLg = () => {
          
          
           <div className="w-8 h-8 text-white">
-            <BiMenu className="w-full h-full" />
+            {/* <BiMenu className="w-full h-full" /> */}
+            <Hamburger />          
           </div>
+          
         </div>
       </div>
       </div>

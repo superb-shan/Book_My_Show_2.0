@@ -18,13 +18,13 @@ app.post("/Login",async(req,res)=>{
     const{email,password}=req.body
 
     try{
-        const check=await collection.findOne({email:email})
+        const check=await collection.findOne({email:email,password:password})
 
         if(check){
             res.json("exist")
         }
         else{
-            res.json("notexist")
+            res.json("not exist")
         }
 
     }

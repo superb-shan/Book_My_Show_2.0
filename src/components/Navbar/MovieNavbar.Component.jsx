@@ -3,6 +3,7 @@ import { BiChevronDown, BiMenu, BiSearch, BiShareAlt } from "react-icons/bi";
 import { MovieContext } from "../../context/Movie.context";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Hamburger from "./Hamburger";
 
 
 const MovieNavbar = () => {
@@ -76,7 +77,7 @@ const NavLg = () => {
           <Link to="/Signup" >Sign Up</Link>
           </button>
           <div className="w-8 h-8 text-white">
-            <BiMenu className="w-full h-full" />
+           < Hamburger/>
           </div>
         </div>
       </div>
