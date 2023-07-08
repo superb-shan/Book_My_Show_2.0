@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { BiChevronDown, BiMenu } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import  { useState } from "react";
 import axios from "axios";
+import CitySelectorModal from "../CitySelector/CitySelectorModal";
+import { NavbarContext } from "../../context/Navbar.context";
 
 
 // Main Component
@@ -10,6 +12,11 @@ const Navbar = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchSuggestionList, setSearchSuggestionList] = useState([]);
+  const {city, setCity, setCityModalOpen} = useContext(NavbarContext);
+
+  
+
+  // const [city, setCity] = useState("Delhi-NCR");
 
   const handleSearch = async () => {
     if (searchTerm) {
@@ -55,7 +62,7 @@ function NavSm() {
         <div>
           <h3 className="text-xl font-bold">It All Starts Here!</h3>
           <span className="text-gray-400 text-xs flex items-center cursor-pointer hover:text-white">
-            Delhi NCR <BiChevronDown />
+            {city} <BiChevronDown />
           </span>
         </div>
         <div className="w-[200px] h-8">
@@ -112,6 +119,7 @@ function NavMd() {
 const NavLg = () => {
   return (
     <>
+    <CitySelectorModal setCity={setCity} />
     <div className="w-full">
       <div className="container flex mx-auto px-4 items-center justify-between">
         <div className="flex items-center w-1/2 gap-3">
@@ -141,14 +149,14 @@ const NavLg = () => {
           
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-gray-200 text-base flex items-center cursor-pointer hover:text-white">
-            Delhi NCR <BiChevronDown />
+          <span className="text-gray-200 text-base flex items-center cursor-pointer hover:text-white" onClick={() => setCityModalOpen(true)}>
+         {city} <BiChevronDown />
           </span>
           <Link
-            to="/plays"
+            to="/tv"
             className="text-gray-200 text-base flex items-center cursor-pointer hover:text-white"
           >
-            Plays
+            TV Shows
           </Link>
          <div className="bg-red-600 text-white px-2 py-1 text-sm rounded">
          <button >

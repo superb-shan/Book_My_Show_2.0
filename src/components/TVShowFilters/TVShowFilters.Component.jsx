@@ -2,7 +2,7 @@ import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
-const PlayFilters = (props) => {
+const TVShowFilters = (props) => {
   return (
     <Disclosure>
       {({ open }) => (
@@ -31,4 +31,4 @@ const PlayFilters = (props) => {
   );
 };
 
-export default PlayFilters;
+export default TVShowFilters;

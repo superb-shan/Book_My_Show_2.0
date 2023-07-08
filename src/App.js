@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 // Pages
 import HomePage from "./pages/Home.page";
 import MoviePage from "./pages/Movie.page";
-import PlayPage from "./pages/Play.page";
+import TVShowPage from "./pages/TVShow.page";
 import Login from "./components/Navbar/Login";
 import Signup from "./components/Navbar/Signup";
 
@@ -23,7 +23,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/movie/:id" element={<MoviePage />} />
-      <Route path="/plays" element={<PlayPage />} />
+      <Route path="/tv" element={<TVShowPage />} />
     </Routes>
   );
 }

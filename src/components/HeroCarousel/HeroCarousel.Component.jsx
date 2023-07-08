@@ -64,6 +64,7 @@ import { Link } from "react-router-dom";
                 src={`https://image.tmdb.org/t/p/original${images.backdrop_path}`}
                 alt="Hero Banner"
                 className="w-full h-full rounded-md object-cover"
+                // title={`${images.original_title}  ${images.original_language !== "en" ? "- " + images.title : ""}`}
               />
               </Link>
             </div>

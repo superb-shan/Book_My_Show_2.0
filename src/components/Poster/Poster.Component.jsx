@@ -17,7 +17,9 @@ const MoviePoster = (props) => {
             props.isDark ? "text-white" : "text-gray-700"
           }`}
         >
+          <p className=" cursor-pointer w-[210px] text-ellipsis overflow-hidden whitespace-nowrap" title={`${props.original_title}  ${props.original_language !== "en" ? "- " + props.title : ""}`}>
           {props.title}
+          </p>
         </h3>
 
       </div>
@@ -27,15 +29,10 @@ const MoviePoster = (props) => {
 
 const PlayPoster = (props) => {
   return (
-    <a
-      href="https://in.bookmyshow.com/events/so-rude-of-me-by-swati-sachdeva/ET00331405"
-      target="_blank"
-      rel="noreferrer"
-    >
       <div className="flex flex-col items-start gap-2 px-1 md:px-3">
-        <div className="h-40 md:h-80">
+        <div className="h-40 md:h-80 w-50">
           <img
-            src={props.src}
+            src={props.poster_path ? `https://image.tmdb.org/t/p/original${props.poster_path}` : "http://www.filmfodder.com/reviews/images/poster-not-available.jpg"}
             alt="poster"
             className="w-full h-full rounded-md object-cover object-center"
           />
@@ -45,10 +42,12 @@ const PlayPoster = (props) => {
             props.isDark ? "text-white" : "text-gray-700"
           }`}
         >
-          {props.title}
+          <p className=" cursor-pointer w-[210px] text-ellipsis overflow-hidden whitespace-nowrap" title={`${props.original_name}  ${props.original_language !== "en" ? "- " + props.name : ""}`}>
+          {/* {(props.original_name.length > 20) ? props.original_name.slice(0, 20) + "..." : props.original_name } */}
+          {props.name}
+          </p>
         </h3>
       </div>
-    </a>
   );
 };
 
