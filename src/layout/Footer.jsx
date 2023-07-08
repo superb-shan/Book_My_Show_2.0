@@ -26,7 +26,7 @@ const Footer = () => {
                 <a href="/events" className="hover:text-white">Events</a>
               </li>
               <li className="mb-2">
-                <a href="/plays" className="hover:text-white">Plays</a>
+                <a href="/tv" className="hover:text-white">TV Shows</a>
               </li>
               <li className="mb-2">
                 <a href="/sports" className="hover:text-white">Sports</a>

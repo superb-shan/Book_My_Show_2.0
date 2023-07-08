@@ -12,7 +12,7 @@ const TVShowFilters = (props) => {
             <span className={open ? "text-red-600" : "text-gray-700"}>
               {props.title}
             </span>
-          </Disclosure.Button>
+          </Disclosure.Button>    
           <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
             <div className="flex items-center gap-3 flex-wrap">
               {props.tags.map((tag, index) => (

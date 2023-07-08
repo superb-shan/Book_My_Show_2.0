@@ -55,7 +55,7 @@ const TVShowPage = () => {
                 title="Target Audience"
                 tags={["Kids", "Adults"]}
               />
-            </div>
+            </div>        
             <div>
               <TVShowFilters
                 title="Censorship"
