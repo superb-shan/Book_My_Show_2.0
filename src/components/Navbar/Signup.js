@@ -18,14 +18,14 @@ const Signup = () => {
     try{
       await axios.post("http://localhost:3001/Signup",{email,password})
       .then(res=>{
-        if(res.data!="exist"){
+        if(res.data!=="exist"){
            toast.info("Successfully Signed Up !!! Login to continue",{
             position: toast.POSITION.TOP_CENTER
            })
             history("/Login")
            
         }
-        else if(res.data=="exist"){
+        else if(res.data==="exist"){
           toast.warning("Email already exists")
             history("/Login")
             

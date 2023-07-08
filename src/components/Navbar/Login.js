@@ -17,13 +17,13 @@ const Login = () => {
     try{
       await axios.post("http://localhost:3001/Login",{email,password})
       .then(res=>{console.log(res)
-        if(res.data=="exist"){
+        if(res.data==="exist"){
           toast.success("Successfully logged in")
           //toast.error("user does not exist")
           history("/")
             
         }
-        else if(res.data=="not exist"){
+        else if(res.data==="not exist"){
             //toast.success("Successfully logged in")
             toast.error("Email/Password is wrong")
             
