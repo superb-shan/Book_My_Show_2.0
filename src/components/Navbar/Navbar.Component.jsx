@@ -55,6 +55,8 @@ const Navbar = () => {
 
   }
 
+
+
 function NavSm() {
   return (
     <>
@@ -167,8 +169,10 @@ const NavLg = () => {
          
          
           <div className="w-8 h-8 text-white">
-            <BiMenu className="w-full h-full" />
+            {/* <BiMenu className="w-full h-full" /> */}
+            <Hamburger />          
           </div>
+          
         </div>
       </div>
       </div>

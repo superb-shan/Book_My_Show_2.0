@@ -26,7 +26,7 @@ const Signup = () => {
            
         }
         else if(res.data=="exist"){
-          toast.warning("User already exists")
+          toast.warning("Email already exists")
             history("/Login")
             
         }
