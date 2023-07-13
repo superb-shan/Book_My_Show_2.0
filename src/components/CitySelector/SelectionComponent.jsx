@@ -19,7 +19,7 @@ const SelectionComponent = (props) => {
       }
     };
 
-    console.log(cities);
+    // console.log(cities);
 
   return (
     <div>
@@ -32,7 +32,7 @@ const SelectionComponent = (props) => {
             >
               {cities.map((city)=>{
                 return(
-                  <ToggleButton value={city.name} className='flex flex-col gap-2' fullWidth= {true} >
+                  <ToggleButton value={city.name} key={city.name+Math.random()} className='flex flex-col gap-2' fullWidth= {true} >
                   {/* <div style={{display: "flex", flexDirection: "column",   }}> */}
                   {city.icon}
                   {city.name}
