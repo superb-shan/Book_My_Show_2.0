@@ -36,16 +36,16 @@ const Footer = () => {
           <div className="flex flex-col lg:w-1/4 mt-6 lg:mt-0">
             <h3 className="text-white text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com" target="_blank" >
+              <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
                 <FaFacebookF className="text-white text-2xl hover:text-gray-400" />
               </a>
-              <a href="https://twitter.com" target="_blank"> 
+              <a href="https://twitter.com" target="_blank"  rel="noreferrer"> 
                 <FaTwitter className="text-white text-2xl hover:text-gray-400" />
               </a>
-              <a href="https://www.instagram.com" target="_blank" >
+              <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
                 <FaInstagram className="text-white text-2xl hover:text-gray-400" />
               </a>
-              <a href="https://www.youtube.com" target="_blank" >
+              <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
                 <FaYoutube className="text-white text-2xl hover:text-gray-400" />
               </a>
             </div>

@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 // Routing
-import { Routes, Route } from "react-router-dom";
+import { Route, HashRouter } from "react-router-dom";
 // React slick css
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,14 +19,14 @@ axios.defaults.params["api_key"] = "c6e58fb8f5627c00e3d12e5fb4203726";
 
 function App() {
   return (
-    <Routes>
+    <HashRouter>
       <Route path="/" element={<HomePage />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/movie/:id" element={<MoviePage />} />
       <Route path="/tv" element={<TVShowPage />} />
       <Route path="*" element={<NoPage/>} />
-    </Routes>
+    </HashRouter>
   );
 }
 
