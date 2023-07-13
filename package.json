@@ -1,6 +1,5 @@
 {
   "name": "bookmyshow_2.0",
-  "homepage": "https://superb-shan.github.io/Book_My_Show_2.0",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,8 +35,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
