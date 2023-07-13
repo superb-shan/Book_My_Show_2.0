@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchSuggestionList, setSearchSuggestionList] = useState([]);
-  const {city, setCity, setCityModalOpen} = useContext(NavbarContext);
+  const {city, setCity, setCityModalOpen, isLoggedIn, userName} = useContext(NavbarContext);
 
   
 
@@ -229,14 +229,11 @@ const Navbar = () => {
           >
             TV Shows
           </Link>
-         <div className="bg-red-600 text-white px-2 py-1 text-sm rounded">
-         <button >
-          <Link to="/Signup" >Sign Up</Link>
-          </button>
-          
+         <div className= {`${isLoggedIn? "font-bold ": "bg-red-600 font-md"} text-white px-4 py-1 rounded`}>
+            <button>
+                <Link to="/login" >{isLoggedIn? "Welcome " + userName + " !" : "Log in"}</Link>
+            </button>
           </div>
-         
-         
           <div className="w-8 h-8 text-white">
             {/* <BiMenu className="w-full h-full" /> */}
             <Hamburger />          

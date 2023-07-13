@@ -126,7 +126,7 @@ const Signup = () => {
     const storedEmail = localStorage.getItem("email");
     if (storedEmail) {
       toast.warning("Email already exists");
-      history("/Login");
+      history("/login");
       return;
     }
 
@@ -193,7 +193,7 @@ const Signup = () => {
         </form>
         <p className="text-gray-700 mt-4">
           Already have an account?{" "}
-          <Link to="/Login" className="text-red-600 font-bold">
+          <Link to="/login" className="text-red-600 font-bold">
             Log in
           </Link>
         </p>

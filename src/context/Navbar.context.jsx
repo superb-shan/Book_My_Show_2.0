@@ -6,6 +6,8 @@ const NavbarProvider = ({ children }) => {
 
     const [isCityModalOpen, setIsCityModalOpen] = useState(true);
     const [city, setCity] = useState("Delhi-NCR");
+    const [userName, setUserName] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   
     return (
@@ -14,7 +16,11 @@ const NavbarProvider = ({ children }) => {
             isCityModalOpen,
             setIsCityModalOpen,
             city,
-            setCity
+            setCity,
+            userName,
+            setUserName,
+            isLoggedIn,
+            setIsLoggedIn
         }}
       >
         {children}

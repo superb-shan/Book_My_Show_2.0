@@ -73,9 +73,11 @@ const NavLg = () => {
           <span className="text-gray-200 text-base flex items-center cursor-pointer hover:text-white">
             Delhi NCR <BiChevronDown />
           </span>
-          <button className="bg-red-600 text-white px-2 py-1 text-sm rounded">
-          <Link to="/Signup" >Sign Up</Link>
+          <div className="bg-red-600 text-white  py-1 text-md rounded">
+         <button className="px-4 font-medium">
+          <Link to="/login" >Log in</Link>
           </button>
+          </div>
           <div className="w-8 h-8 text-white">
            < Hamburger/>
           </div>
