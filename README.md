@@ -120,14 +120,13 @@ To start this project run
 
 ```bash
   npm start
-  [Deployed Site](https://book-my-show-lite.vercel.app/)
 ```
+  [Deployed Site](https://book-my-show-lite.vercel.app/)
 
 ## Documents
 
-Documents Related to this project is as follows
+Documents Related to this project are as follows
 
-```bash
-  [Internship Report]([https://book-my-show-lite.vercel.app/](https://docs.google.com/document/d/1fWiXeI07YByXJF2tdKjn_8HlDPK5zSML/edit?usp=sharing&ouid=117595456300999156279&rtpof=true&sd=true)
+  [Internship Report](https://docs.google.com/document/d/1fWiXeI07YByXJF2tdKjn_8HlDPK5zSML/edit?usp=sharing&ouid=117595456300999156279&rtpof=true&sd=true)
   [Project Diary](https://docs.google.com/document/d/1UrjR7K9rqJHw9kgIEYMCNIqf75OYZ_YF/edit?usp=sharing&ouid=117595456300999156279&rtpof=true&sd=true)
-```
+
