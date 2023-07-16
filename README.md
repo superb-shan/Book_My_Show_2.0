@@ -65,7 +65,7 @@ Go through the official websites to see detailed installation procedures.
 #### Plays/ Events
 
 ```http
-   /plays
+   /tv
 ```
 
 | Route    | Description                |
